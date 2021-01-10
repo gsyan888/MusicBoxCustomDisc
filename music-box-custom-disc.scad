@@ -5,7 +5,7 @@
 //by gsyan ( https://gsyan888.blogspot.com/ )
 //
 //2021.01.06 start this project
-//
+//2021.01.09 replace looup function with findValue 
 //
 
 
@@ -126,10 +126,10 @@ musicScore = [
 30,0, 20, 10,
 6,0, 20, 30,
 40,0, 30, 20,
-5,0, 6,0,
-6,0, 5,0,
-3,0,0,0,
-3, 0, 0, 0
+5,0, 40,0,
+30,0, 20,0,
+10,0,0,0,
+0, 0, 0, 0
     ],
 
 	//2nd. track
@@ -158,8 +158,18 @@ musicScore = [
 //total number of tones
 tonesTotalNumber = len(notesIndexMap)-1;
 
+
+//
+//Find the value in a list(key and value) with key
+//
+// OpenSCAD looup return unknow value when found nothing
+// this function will return 0 when found nothing
+//
+function findValue(key, nList, n=0) = (n>=0 && n<len(nList) ? (key==nList[n][0] ? nList[n][1] : findValue(key, nList, n+1)) : 0);
+
 //find the tooth number (1-22) of the note
-function getToothId(n) = lookup(n, notesIndexMap);
+//function getToothId(n) = lookup(n, notesIndexMap);
+function getToothId(n) = findValue(n, notesIndexMap);
 
 //
 //convert notes id to teeth id 
