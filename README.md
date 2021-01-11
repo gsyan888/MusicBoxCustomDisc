@@ -1,6 +1,6 @@
 # Description
 
-The tool can generate music box disc modle for 3D printing.
+The tool can generate music box disc model for 3D printing.
 
 You can print the pins on old CD/DVD disc or print the full music box disc.
 
